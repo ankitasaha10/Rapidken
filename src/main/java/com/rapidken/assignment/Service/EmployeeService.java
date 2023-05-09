@@ -3,7 +3,9 @@ package com.rapidken.assignment.Service;
 import com.rapidken.assignment.Model.Employee;
 import com.rapidken.assignment.Repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,5 +31,9 @@ public class EmployeeService {
     public String deleteById(Long id){
         employeeRepository.deleteById(id);
         return "Id deleted successfully";
+    }
+
+    public Page<Employee> findPage(int page, int size){
+        return employeeRepository.findAll(PageRequest.of(page, size));
     }
 }
