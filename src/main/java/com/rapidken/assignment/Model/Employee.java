@@ -22,7 +22,9 @@ public class Employee {
     private String position;
     private String email_address;
     private String contact_number;
-//    private String picture;
+
+    @Lob
+    private byte[] picture;
 
 
 }
